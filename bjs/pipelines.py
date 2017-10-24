@@ -6,8 +6,8 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import datetime
-
-FILEPREX = '定增项目——'
+import os
+FILEPREX = '定增项目_'
 
 class BjsPipeline(object):
     def process_item(self, item, spider):
@@ -99,6 +99,11 @@ class BjsPipeline(object):
         return item
 
     def open_spider(self,spider):
+        files = os.listdir()
+        for f in files:
+            if '.csv' in f:
+                os.remove(f)
+
         file_name = FILEPREX+str(datetime.date.today())+'.csv'
         self.fh = open(file_name,'w',encoding='gbk')
 
