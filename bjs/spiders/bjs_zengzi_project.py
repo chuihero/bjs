@@ -44,199 +44,199 @@ class ZengZiProject(scrapy.Spider):
             zengzi['industry'] = content.xpath('//node()[contains(text(),"融资方所属行业")][@class="gp_infoname"]/following::td/text()')[0].extract()
         except:
             print('网页数据解析错误')
-            zengzi['industry'] = None
+            zengzi['industry'] = 'Null'
         try:
             ygdsfcyzz = content.xpath('//node()[contains(text(),"原股东是否参与增资")][@class="gp_infoname"]/following::td/text()')[0].extract()
             zengzi['ygdsfcyzz']= ygdsfcyzz.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['ygdsfcyzz'] = None
+            zengzi['ygdsfcyzz'] = 'Null'
         try:
             zgsfcyzz = content.xpath('//node()[contains(text(),"职工是否参与增资")]/following::td[1]/text()')[0].extract()
             zengzi['zgsfcyzz']= zgsfcyzz.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zgsfcyzz'] = None
+            zengzi['zgsfcyzz'] = 'Null'
         try:
             nmjzjze = content.xpath('//node()[contains(text(),"拟募集资金总额")]/following::td[1]/text()')[0].extract()
             zengzi['nmjzjze']= nmjzjze.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['nmjzjze'] = None
+            zengzi['nmjzjze'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"拟募集资金对应持股比例")]/following::td[1]/text()')[0].extract()
             zengzi['nmjzjdycgbl']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['nmjzjdycgbl'] =None
+            zengzi['nmjzjdycgbl'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"拟新增注册资本")]/following::td[1]/text()')[0].extract()
             zengzi['nxzzczb']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['nxzzczb'] =None
+            zengzi['nxzzczb'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"拟征集投资方数量")]/following::td[1]/text()')[0].extract()
             zengzi['nzjtzfsl']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['nzjtzfsl'] =None
+            zengzi['nzjtzfsl'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"增资后企业股权结构")]/following::td[1]/text()')[0].extract()
             zengzi['zzhqygqjg']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zzhqygqjg'] =None
+            zengzi['zzhqygqjg'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"增资方案主要内容")]/following::td[1]/p/text()')[0].extract()
-            zengzi['zzfazynr']= _temp.split()
+            zengzi['zzfazynr']= ''.join(_temp.split())
         except:
             print('网页数据解析错误')
-            zengzi['zzfazynr'] =None
+            zengzi['zzfazynr'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"增资达成或终止的条件")]/following::td[1]/p/text()')[0].extract()
             zengzi['zzdchzzdtj']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zzdchzzdtj'] =None
+            zengzi['zzdchzzdtj'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"信息发布期满的安排")]/following::td[1]/text()').extract()
-            zengzi['xxfbqmdap']= [i.split()[0] for i in _temp]
+            zengzi['xxfbqmdap']= ''.join([i.split()[0] for i in _temp])
         except:
             print('网页数据解析错误')
-            zengzi['xxfbqmdap'] =None
+            zengzi['xxfbqmdap'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"募集资金用途")]/following::td[1]/text()')[0].extract()
-            zengzi['mjzjyt']= _temp.split()
+            zengzi['mjzjyt']= ''.join(_temp.split())
         except:
             print('网页数据解析错误')
-            zengzi['mjzjyt'] = None
+            zengzi['mjzjyt'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"住所")]/following::td[1]/text()')[0].extract()
             zengzi['zs']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zs'] = None
+            zengzi['zs'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"法定代表人")]/following::td[1]/text()')[0].extract()
             zengzi['fddbr']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['fddbr'] = None
+            zengzi['fddbr'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"成立日期")]/following::td[1]/text()')[0].extract()
             zengzi['clrq']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['clrq'] = None
+            zengzi['clrq'] = 'Null'
         try:
-            _temp = content.xpath('//node()[contains(text(),"注册资本")]/following::td[1]/text()')[0].extract()
+            _temp = content.xpath('//node()[contains(text(),"注册资本")]/following::td[1]/text()')[1].extract()
             zengzi['zczb']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zczb'] = None
+            zengzi['zczb'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"实收资本")]/following::td[1]/text()')[0].extract()
             zengzi['sszb']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['sszb'] = None
+            zengzi['sszb'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"股东个数")]/following::td[1]/text()')[0].extract()
             zengzi['gdgs']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['gdgs'] = None
+            zengzi['gdgs'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"职工人数")]/following::td[1]/text()')[0].extract()
             zengzi['zgrs']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zgrs'] = None
+            zengzi['zgrs'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"经营范围")]/following::td[1]/text()')[0].extract()
             zengzi['jyfw']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['jyfw'] = None
+            zengzi['jyfw'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"融资方决策文件类型")]/following::td[1]/p/text()')[0].extract()
             zengzi['rzfjcwjlx']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['rzfjcwjlx'] = None
+            zengzi['rzfjcwjlx'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"国资监管机构")]/following::td[1]/p/text()')[0].extract()
             zengzi['gzjgjg']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['gzjgjg'] = None
+            zengzi['gzjgjg'] = 'Null'
         try:
-            _temp = content.xpath('//node()[contains(text(),"国家出资企业或")]/following::td[1]/p/text()').extract()
+            _temp = content.xpath('//node()[contains(text(),"国家出资企业或")]/following::td[1]/p/text()')[0].extract()
             zengzi['gjczqyhzgbmmc']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['gjczqyhzgbmmc'] = None
+            zengzi['gjczqyhzgbmmc'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"批准单位名称")]/following::td[1]/p/text()')[0].extract()
             zengzi['pzdwmc']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['pzdwmc'] = None
+            zengzi['pzdwmc'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"批准文件类型")]/following::td[1]/p/text()')[0].extract()
             zengzi['pzwjlx']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['pzwjlx'] = None
+            zengzi['pzwjlx'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"其他需要披露的事项")]/following::td[1]/text()')[0].extract()
             zengzi['qtxypldsx']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['qtxypldsx'] = None
+            zengzi['qtxypldsx'] = 'Null'
         try:
-            _temp = content.xpath('//node()[contains(text(),"投资方资格条件")]/following::td[1]/text()')[0].extract()
-            zengzi['tzfzgtj']= _temp.split()
+            _temp = content.xpath('//node()[contains(text(),"投资方资格条件")]/following::td[1]/text()')[1].extract()
+            zengzi['tzfzgtj']= ''.join(_temp.split())
         except:
             print('网页数据解析错误')
-            zengzi['tzfzgtj'] = None
+            zengzi['tzfzgtj'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"增资条件")]/following::td[1]/p/text()')[0].extract()
-            zengzi['zztj']= _temp.split()
+            zengzi['zztj']= ''.join(_temp.split())
         except:
             print('网页数据解析错误')
-            zengzi['zztj'] = None
+            zengzi['zztj'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"保证金金额或比例")]/following::td[1]/text()')[0].extract()
             zengzi['bzjjehbl']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['bzjjehbl'] = None
+            zengzi['bzjjehbl'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"交纳时间")]/following::td[1]/text()')[0].extract()
             zengzi['jnsj']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['jnsj'] = None
+            zengzi['jnsj'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"保证金处置方式")]/following::td[1]/text()')[0].extract()
             zengzi['bzjczfs']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['bzjczfs'] = None
+            zengzi['bzjczfs'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"择优方式")]/following::td[1]/text()')[0].extract()
             zengzi['zyfs']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zyfs'] = None
+            zengzi['zyfs'] = 'Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"择优方案主要内容")]/following::td[1]//text()')[0].extract()
             zengzi['zyfazynr']= _temp.split()[0]
         except:
             print('网页数据解析错误')
-            zengzi['zyfazynr'] = None
+            zengzi['zyfazynr'] = 'Null'
 
         #企业股权处理
         rows = int(content.xpath('//td[contains(text(),"企业股权结构")][@rowspan]/@rowspan')[0].extract())
@@ -244,7 +244,7 @@ class ZengZiProject(scrapy.Spider):
         zengzi['qygqjg']= [i.xpath('td/text()').extract() for i in _gudongs]
         # 不满10人的处理
         while len(zengzi['qygqjg'])<10:
-            zengzi['qygqjg'].append([None,None])
+            zengzi['qygqjg'].append(['Null','Null'])
 
         #主要财务处理
         rows = int(content.xpath('//td[contains(text(),"主要财务指标")][@rowspan]/@rowspan')[0].extract())
@@ -259,20 +259,24 @@ class ZengZiProject(scrapy.Spider):
         _date = content.xpath('//td[contains(text(),"最近一期财务数据")][@colspan]/parent::tr/following::tr[1]/td[1]/text()')[0].extract()
         last_date = _date.split()[0]
         _caiwu = content.xpath('//td[contains(text(),"最近一期财务数据")][@colspan]/parent::tr/following::tr')[1:4:2]
-        last_caiwu = [i.xpath('td/text()').extract() for i in _caiwu]
-        last_caiwu[0] = [i.split()[0] for i in last_caiwu[0]]
+        _last_caiwu = [i.xpath('td/text()').extract() for i in _caiwu]
+        _last_caiwu[0] = [i.split()[0] for i in _last_caiwu[0]]
+        last_caiwu = _last_caiwu[0].copy()
+        last_caiwu.extend(_last_caiwu[1] if _last_caiwu[1] else ['0','0','0'])
 
-        zengzi['zycwzb']= OrderedDict()
+
+        # zengzi['zycwzb']= OrderedDict()
+        zengzi['zycwzb']= []
         for index in range(len(years)):
             if years[index]:
-                zengzi['zycwzb'][years[index]] = caiwushuju[index*2].copy()
-                zengzi['zycwzb'][years[index]].extend(caiwushuju[index*2+1])
+                _d = caiwushuju[index*2].copy()
+                _d.extend(caiwushuju[index*2+1])
+                zengzi['zycwzb'].append([years[index],_d])
         # 不满三年的处理
         while len(zengzi['zycwzb'])<3:
-            zengzi['zycwzb'].append([0,0,0,0,0,0])
+            zengzi['zycwzb'].append(['Null',['0','0','0','0','0','0']])
         #最近财务数据
-        zengzi['zycwzb'][last_date] = [i.split()[0] for i in last_caiwu[0]]
-        zengzi['zycwzb'][last_date].extend(last_caiwu[1])
+        zengzi['zycwzb'].append([last_date, last_caiwu])
 
 
 

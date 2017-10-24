@@ -6,7 +6,6 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import datetime
-from .items import BjsZengZiItem
 
 FILEPREX = '定增项目——'
 
@@ -16,88 +15,92 @@ class BjsPipeline(object):
                "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
                "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
                "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
-               "%s"%(item['id'],item['name'],item['location'],item['industry'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz'],
-                     item['ygdsfcyzz']
-                     )
+               "%s\n"%(item['id'],item['name'],item['location'],item['industry'],
+                     item['ygdsfcyzz'].replace(',','，'),
+                     item['zgsfcyzz'].replace(',','，'),
+                     item['nmjzjze'].replace(',','，'),
+                     item['nmjzjdycgbl'].replace(',','，'),
+                     item['nxzzczb'].replace(',','，'),
+                     item['nzjtzfsl'].replace(',','，'),
+                     item['zzhqygqjg'].replace(',','，'),
+                     item['zzfazynr'].replace(',','，'),
+                     item['zzdchzzdtj'].replace(',','，'),
+                     item['xxfbqmdap'].replace(',','，'),
+                     item['mjzjyt'].replace(',','，'),
+                     item['zs'].replace(',','，'),
+                     item['fddbr'].replace(',','，'),
+                     item['clrq'].replace(',','，'),
+                     item['zczb'].replace(',','，'),
+                     item['sszb'].replace(',','，'),
+                     item['gdgs'].replace(',','，'),
+                     item['zgrs'].replace(',','，'),
+                     item['jyfw'].replace(',','，'),
+                     item['qygqjg'][0][0].replace(',','，'),
+                     item['qygqjg'][0][1].replace(',','，'),
+                     item['qygqjg'][1][0].replace(',','，'),
+                     item['qygqjg'][1][1].replace(',','，'),
+                     item['qygqjg'][2][0].replace(',','，'),
+                     item['qygqjg'][2][1].replace(',','，'),
+                     item['qygqjg'][3][0].replace(',','，'),
+                     item['qygqjg'][3][1].replace(',','，'),
+                     item['qygqjg'][4][0].replace(',','，'),
+                     item['qygqjg'][4][1].replace(',','，'),
+                     item['qygqjg'][5][0].replace(',','，'),
+                     item['qygqjg'][5][1].replace(',','，'),
+                     item['qygqjg'][6][0].replace(',','，'),
+                     item['qygqjg'][6][1].replace(',','，'),
+                     item['qygqjg'][7][0].replace(',','，'),
+                     item['qygqjg'][7][1].replace(',','，'),
+                     item['qygqjg'][8][0].replace(',','，'),
+                     item['qygqjg'][8][1].replace(',','，'),
+                     item['qygqjg'][9][0].replace(',','，'),
+                     item['qygqjg'][9][1].replace(',','，'),
+                     item['zycwzb'][0][1][0].replace(',','，'),
+                     item['zycwzb'][0][1][1].replace(',','，'),
+                     item['zycwzb'][0][1][2].replace(',','，'),
+                     item['zycwzb'][0][1][3].replace(',','，'),
+                     item['zycwzb'][0][1][4].replace(',','，'),
+                     item['zycwzb'][0][1][5].replace(',','，'),
+                     item['zycwzb'][1][1][0].replace(',','，'),
+                     item['zycwzb'][1][1][1].replace(',','，'),
+                     item['zycwzb'][1][1][2].replace(',','，'),
+                     item['zycwzb'][1][1][3].replace(',','，'),
+                     item['zycwzb'][1][1][4].replace(',','，'),
+                     item['zycwzb'][1][1][5].replace(',','，'),
+                     item['zycwzb'][2][1][0].replace(',','，'),
+                     item['zycwzb'][2][1][1].replace(',','，'),
+                     item['zycwzb'][2][1][2].replace(',','，'),
+                     item['zycwzb'][2][1][3].replace(',','，'),
+                     item['zycwzb'][2][1][4].replace(',','，'),
+                     item['zycwzb'][2][1][5].replace(',','，'),
+                     item['zycwzb'][3][0].replace(',','，'),
+                     item['zycwzb'][3][1][0].replace(',','，'),
+                     item['zycwzb'][3][1][1].replace(',','，'),
+                     item['zycwzb'][3][1][2].replace(',','，'),
+                     item['zycwzb'][3][1][3].replace(',','，'),
+                     item['zycwzb'][3][1][4].replace(',','，'),
+                     item['zycwzb'][3][1][5].replace(',','，'),
+                     item['rzfjcwjlx'].replace(',','，'),
+                     item['gzjgjg'].replace(',','，'),
+                     item['gjczqyhzgbmmc'].replace(',','，'),
+                     item['pzdwmc'].replace(',','，'),
+                     item['pzwjlx'].replace(',','，'),
+                     item['qtxypldsx'].replace(',','，'),
+                     item['tzfzgtj'].replace(',','，'),
+                     item['zztj'].replace(',','，'),
+                     item['bzjjehbl'].replace(',','，'),
+                     item['jnsj'].replace(',','，'),
+                     item['bzjczfs'].replace(',','，'),
+                     item['zyfs'].replace(',','，'),
+                     item['zyfazynr'].replace(',','，'))
+        self.fh.write(line)
+
+
         return item
 
     def open_spider(self,spider):
-        file_name = FILEPREX+str(datetime.date.today())
-        self.fh = open(file_name,'w',encoding='utf-8')
+        file_name = FILEPREX+str(datetime.date.today())+'.csv'
+        self.fh = open(file_name,'w',encoding='gbk')
 
         #写表头
         self.fh.write("项目编号,标的名称,融资方所在地区,融资方所属行业,"
@@ -170,7 +173,7 @@ class BjsPipeline(object):
                       "国家出资企业或主管部门名称,"
                       "批准单位名称,"
                       "批准文件类型,"
-                      "其他需要披露的事项"
+                      "其他需要披露的事项,"
                       "投资方资格条件,"
                       "增资条件,"
                       "保证金金额或比例,"
