@@ -112,4 +112,4 @@ if __name__ == '__main__':
     file = FILEPREX+str(datetime.date.today())+'.csv'
     paylad={file:os.path.join(os.getcwd(),file)}
     mail_server.compose('定增项目更新-%s'%str(datetime.date.today()),'请检查附件',paylad)
-    mail_server.send('13910154640@139.com')
+    mail_server.send()
