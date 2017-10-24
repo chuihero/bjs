@@ -53,7 +53,7 @@ class Mail():
         """
         self.msg = MIMEMultipart()
         self.msg['From'] = self.fromaddr
-        # self.msg['To'] = self.to
+        self.msg['To'] = self.to
         self.msg['Subject'] = Header(title, 'utf-8').encode()
 
         payloadindex = 0
@@ -111,5 +111,5 @@ if __name__ == '__main__':
     mail_server = Mail('mailConfig.json')
     file = FILEPREX+str(datetime.date.today())+'.csv'
     paylad={file:os.path.join(os.getcwd(),file)}
-    mail_server.compose('定增项目更新-%s'%str(datetime.date.today()),'定增项目更新-%s',paylad)
+    mail_server.compose('定增项目更新-%s'%str(datetime.date.today()),'请检查附件',paylad)
     mail_server.send('13910154640@139.com')
