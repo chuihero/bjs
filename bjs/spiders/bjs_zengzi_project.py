@@ -95,7 +95,7 @@ class ZengZiProject(scrapy.Spider):
             zengzi['zzfazynr'] ='Null'
         try:
             _temp = content.xpath('//node()[contains(text(),"增资达成或终止的条件")]/following::td[1]/p/text()')[0].extract()
-            zengzi['zzdchzzdtj']= _temp.split()[0]
+            zengzi['zzdchzzdtj']= ''.join(_temp.split())
         except:
             print('网页数据解析错误')
             zengzi['zzdchzzdtj'] ='Null'
